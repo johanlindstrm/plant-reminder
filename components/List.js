@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, Text, View, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
-
 const plantImg = require('../assets/favicon.png')
 
 const DummyPlantData = [
