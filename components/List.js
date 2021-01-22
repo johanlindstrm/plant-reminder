@@ -9,9 +9,8 @@ const DummyPlantData = [
     {id:3, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
 ]
  
-const List = () => {
+export const List = ({navigation}) => {
     return (
-        <SafeAreaView style={{height:'100%',}}>
           <FlatList
             data={DummyPlantData}
             renderItem={({ item }) => {
@@ -30,7 +29,7 @@ const List = () => {
                     </View>
                     
                     <View style={{backgroundColor:'orange', alignItems:'flex-end', marginRight:20}}>
-                      <TouchableOpacity style={{height:40, width:80, backgroundColor:'#529FF3', justifyContent:'center'}}> 
+                      <TouchableOpacity style={{height:40, width:80, backgroundColor:'#529FF3', justifyContent:'center'}} onPress={() => navigation.navigate('Details')} > 
                         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:20}}>Water</Text>
                       </TouchableOpacity>
                     </View>
@@ -39,8 +38,9 @@ const List = () => {
                 </View>
               );
             }}
+            keyExtractor={item => item.id.toString()}
+
           />
-        </SafeAreaView>
       )
 }
 
@@ -51,5 +51,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     },
   });
-
-export default List;

@@ -1,18 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image} from 'react-native';
-import Home from './screens/Home.js'
+import { NavigationContainer } from '@react-navigation/native';
+import { MainStackNavigator } from './navigation/StackNavigation.js'
 
 export default function App() {
   return (
-    <View>
-      <Home />
-    </View>
+    <NavigationContainer>
+      <MainStackNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
