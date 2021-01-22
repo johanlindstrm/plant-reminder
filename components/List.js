@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, Text, View, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
@@ -9,14 +10,15 @@ const DummyPlantData = [
     {id:3, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
 ]
  
-export const List = ({navigation}) => {
+export const List = () => {
+  const navigation = useNavigation()
     return (
           <FlatList
             data={DummyPlantData}
             renderItem={({ item }) => {
               return (
                 <View style={{...styles.container, backgroundColor:'yellow'}}>
-                  <View style={{ backgroundColor: 'gray', marginTop:10 ,width:'100%', height:120, flexDirection:'row', alignItems:'center'}}>
+                  <TouchableOpacity style={{ backgroundColor: 'gray', marginTop:10 ,width:'100%', height:120, flexDirection:'row', alignItems:'center'}} onPress={() => navigation.navigate('Details')}>
                     
                     <View style={{flex:0.5, backgroundColor:'orange', marginLeft:20}}>
                       <Image source={item.img} style={{ height: 100, width: 100 }} />
@@ -29,12 +31,12 @@ export const List = ({navigation}) => {
                     </View>
                     
                     <View style={{backgroundColor:'orange', alignItems:'flex-end', marginRight:20}}>
-                      <TouchableOpacity style={{height:40, width:80, backgroundColor:'#529FF3', justifyContent:'center'}} onPress={() => navigation.navigate('Details')} > 
+                      <TouchableOpacity style={{height:40, width:80, backgroundColor:'#529FF3', justifyContent:'center'}} > 
                         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:20}}>Water</Text>
                       </TouchableOpacity>
                     </View>
                   
-                  </View>
+                  </TouchableOpacity>
                 </View>
               );
             }}
