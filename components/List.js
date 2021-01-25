@@ -25,7 +25,7 @@ export const List = () => {
             </View>
                     
             <View style={{flex:1, backgroundColor:'red', height:100, marginLeft:10, marginRight:10, justifyContent:'center'}}>
-              <Text style={{justifyContent:''}}>{item.title}</Text>
+              <Text>{item.title}</Text>
               <Text>{item.reminderTime}</Text>
               <Text>{item.timeLeft}</Text>
             </View>
