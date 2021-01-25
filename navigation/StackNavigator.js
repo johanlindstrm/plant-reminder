@@ -47,11 +47,10 @@ export const LogInStackNavigator = () => {
 };
 
 export const AuthStackNavigator = () => {
-  const isLoggedIn = false;
   return (
     <Stack.Navigator>
-      {isLoggedIn ? <AuthenticatedStack /> :
-      <UnauthenticatedStack />}
+        <Stack.Screen name="Profile" component={Profile}/>
+        <Stack.Screen name="Login" component={LogIn}/>
     </Stack.Navigator>
   )
 }

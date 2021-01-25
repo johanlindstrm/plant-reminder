@@ -20,7 +20,7 @@ export default function BottomTabNavigator() {
       <Tab.Navigator tabBarOptions={tabBarOptionStyle}>
         <Tab.Screen name="Home" component={MainStackNavigator} />
         {/* <Tab.Screen name="Profile" component={ProfileStackNavigator}/> */}
-        <Tab.Screen name="Login" component={LogInStackNavigator} />
+        <Tab.Screen name="Login" component={AuthStackNavigator} />
       </Tab.Navigator>
 
     );

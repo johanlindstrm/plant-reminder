@@ -3,10 +3,12 @@ import React from 'react'
 import AuthenticatedStack from './AuthenticatedStack'
 import UnauthenticatedStack from './UnauthenticatedStack'
 import BottomTabNavigator from "./TabNavigator";
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 
 export default function AuthNavigation() {
-    let isLoggedIn = false;
+    const {isLoggedIn} = useContext(AuthContext)
     return (
         <NavigationContainer>
             {isLoggedIn ? <AuthenticatedStack/> : <UnauthenticatedStack/> }

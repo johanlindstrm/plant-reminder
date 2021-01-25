@@ -1,10 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
-export default function Home({navigation}) {
+export default function Profile() {
+
+  const {setIsLoggedIn} = useContext(AuthContext)
 
   const signOut = () => {
-    navigation.navigate('Login')
+    // navigation.navigate('Login')
+    setIsLoggedIn(false)
   }
   return (
       <View style={styles.container}>

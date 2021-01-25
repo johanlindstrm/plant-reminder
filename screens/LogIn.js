@@ -1,13 +1,17 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
-export default function LogIn({navigation}) {
+export default function LogIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const {setIsLoggedIn} = useContext(AuthContext)
+
     const submit = () => {
-        navigation.navigate('Profile')
+        // navigation.navigate('Profile')
+        setIsLoggedIn(true)
     }
   return (
       <View style={styles.container}>
