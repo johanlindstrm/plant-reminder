@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function Home() {
+export default function Home({navigation}) {
+
+  const signOut = () => {
+    navigation.navigate('Login')
+  }
   return (
       <View style={styles.container}>
         <Text>Hello Profile</Text>
+        <Button title='Sign Out' onPress={signOut} />
       </View>
   );
 }

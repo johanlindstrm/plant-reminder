@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, Text, View, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import { Text, View, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 const plantImg = require('../assets/favicon.png')
 
 const plants = [
@@ -18,7 +18,9 @@ export const List = () => {
       renderItem={({ item }) => {
         return (
           <View style={{...styles.container, backgroundColor:'yellow'}}>
-            <TouchableOpacity style={{ backgroundColor: 'gray', marginTop:10 ,width:'100%', height:120, flexDirection:'row', alignItems:'center'}} onPress={() => navigation.navigate('Details')}>
+            <TouchableOpacity 
+              style={{ backgroundColor: 'gray', marginTop:10 ,width:'100%', height:120, flexDirection:'row', alignItems:'center'}} 
+              onPress={() => navigation.navigate('Details')}>
                     
             <View style={{flex:0.5, backgroundColor:'orange', marginLeft:20}}>
               <Image source={item.img} style={{ height: 100, width: 100 }} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainStackNavigator, ProfileStackNavigator } from './StackNavigator.js';
+import { MainStackNavigator, ProfileStackNavigator, LogInStackNavigator, AuthStackNavigator } from './StackNavigator.js';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -15,10 +15,13 @@ const tabBarOptionStyle = {
   };
 
 export default function BottomTabNavigator() {
+
     return (
       <Tab.Navigator tabBarOptions={tabBarOptionStyle}>
         <Tab.Screen name="Home" component={MainStackNavigator} />
-        <Tab.Screen name="Profile" component={ProfileStackNavigator} />
+        {/* <Tab.Screen name="Profile" component={ProfileStackNavigator}/> */}
+        <Tab.Screen name="Login" component={LogInStackNavigator} />
       </Tab.Navigator>
+
     );
   };
