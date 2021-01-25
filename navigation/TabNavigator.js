@@ -14,6 +14,8 @@ const tabBarOptionStyle = {
     inactiveTintColor: 'gray',
   };
 
+
+
 export default function BottomTabNavigator() {
 
     return (

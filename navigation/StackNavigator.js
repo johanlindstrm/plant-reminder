@@ -48,9 +48,9 @@ export const LogInStackNavigator = () => {
 
 export const AuthStackNavigator = () => {
   return (
-    <Stack.Navigator>
-        <Stack.Screen name="Profile" component={Profile}/>
-        <Stack.Screen name="Login" component={LogIn}/>
+    <Stack.Navigator initialRouteName='Login'>
+      <Stack.Screen name='Login' component={LogIn}/>
+      <Stack.Screen name='Profile' component={Profile}/>
     </Stack.Navigator>
   )
 }

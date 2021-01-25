@@ -5,16 +5,18 @@ import { AuthContext } from '../context/AuthContext';
 
 export default function Profile() {
 
-  const {setIsLoggedIn} = useContext(AuthContext)
+  const {setIsLoggedIn, signOut} = useContext(AuthContext)
 
-  const signOut = () => {
+  const logOut = () => {
     // navigation.navigate('Login')
-    setIsLoggedIn(false)
+    // setIsLoggedIn(false)
+    signOut()
+    console.log('sign out button pressed')
   }
   return (
       <View style={styles.container}>
         <Text>Hello Profile</Text>
-        <Button title='Sign Out' onPress={signOut} />
+        <Button title='Sign Out' onPress={logOut} />
       </View>
   );
 }

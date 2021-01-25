@@ -7,11 +7,14 @@ export default function LogIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const {setIsLoggedIn} = useContext(AuthContext)
+    const {setIsLoggedIn, logIn} = useContext(AuthContext)
 
     const submit = () => {
         // navigation.navigate('Profile')
-        setIsLoggedIn(true)
+        // setIsLoggedIn(true)
+        // console.log('submit pressed')
+        console.log('submitted log in');
+        logIn(email, password);
     }
   return (
       <View style={styles.container}>

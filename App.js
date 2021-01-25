@@ -9,8 +9,10 @@ export default function App() {
     <AuthContextProvider>
       <AuthNavigation/>
     </AuthContextProvider>
-    // <NavigationContainer>
-    //   <BottomTabNavigator />
-    // </NavigationContainer>
+    // <AuthContextProvider>
+    //   <NavigationContainer>
+    //     <BottomTabNavigator />
+    //   </NavigationContainer>
+    // </AuthContextProvider>
   );
 }
