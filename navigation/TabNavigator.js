@@ -1,5 +1,5 @@
-import React from 'react';
-import { MainStackNavigator, ProfileStackNavigator, LogInStackNavigator, AuthStackNavigator } from './StackNavigator.js';
+import React, { useContext } from 'react';
+import { MainStackNavigator, AuthStackNavigator } from './StackNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -15,14 +15,13 @@ const tabBarOptionStyle = {
   };
 
 
-
-export default function BottomTabNavigator() {
-
+export default function RootTabNavigator() {
     return (
+    
       <Tab.Navigator tabBarOptions={tabBarOptionStyle}>
         <Tab.Screen name="Home" component={MainStackNavigator} />
         {/* <Tab.Screen name="Profile" component={ProfileStackNavigator}/> */}
-        <Tab.Screen name="Login" component={AuthStackNavigator} />
+        <Tab.Screen name='Login' component={AuthStackNavigator} />
       </Tab.Navigator>
 
     );

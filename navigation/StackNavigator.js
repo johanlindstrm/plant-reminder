@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from '../context/AuthContext';
 import { createStackNavigator } from "@react-navigation/stack";
 import AuthenticatedStack from './AuthenticatedStack'
 import UnauthenticatedStack from './UnauthenticatedStack'
@@ -18,6 +19,7 @@ const screenOptionStyle = {
     headerTintColor: "white",
     headerBackTitle: "Back",
   };
+
 export const MainStackNavigator = () => {
   return (
     <Stack.Navigator initialRouteName='Home' screenOptions={screenOptionStyle}>
@@ -30,28 +32,23 @@ export const MainStackNavigator = () => {
   );
 };
 
-export const ProfileStackNavigator = () => {
-    return (
-      <Stack.Navigator screenOptions={screenOptionStyle} initialRouteName='Profile'>
-        <Stack.Screen name="Profile" component={Profile}/>
-      </Stack.Navigator>
-    );
-};
-
-export const LogInStackNavigator = () => {
-  return(
-    <Stack.Navigator screenOptions={screenOptionStyle} initialRouteName='Login'>
-      <Stack.Screen name="Login" component={LogIn}/>
-    </Stack.Navigator>
-  );
-};
 
 export const AuthStackNavigator = () => {
+  const {isLoading, user} = useContext(AuthContext)
+
+  if (isLoading) {
+    return <Splash />
+  }
   return (
-    <Stack.Navigator initialRouteName='Login'>
-      <Stack.Screen name='Login' component={LogIn}/>
-      <Stack.Screen name='Profile' component={Profile}/>
-    </Stack.Navigator>
+    user ? (
+      <>
+        <AuthenticatedStack />
+      </>
+    ) : (
+      <>
+        <UnauthenticatedStack />
+      </>
+    )
   )
 }
 
