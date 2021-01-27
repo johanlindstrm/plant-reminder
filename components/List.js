@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Text, View, FlatList, Image, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import ListItem from './ListItem'
-import {AuthContext} from '../context/AuthContext'
+import { PlantContext } from '../context/PlantContext';
 
 const plantImg = require('../assets/potted-plant.png')
 
@@ -12,7 +12,7 @@ const renderItem = ({item}) => {
 }
 
 export default function List() {
-  const {plantList} = useContext(AuthContext)
+  const {plantList} = useContext(PlantContext)
 
   const [plants, setPlants] = useState([
     {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},

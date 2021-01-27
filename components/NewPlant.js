@@ -1,17 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {useState, useContext} from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
-import {AuthContext} from '../context/AuthContext'
+import { PlantContext } from '../context/PlantContext';
 
 const placeholderImg = require('../assets/potted-plant.png');
 
 export default function NewPlant() {
-
+    const navigation = useNavigation()
     const [title, setTitle] = useState('');
-    const [timeValue, setTimeValue] = useState('');
-    const [newImg, setNewImg] = useState();
+    const [newTime, setNewTime] = useState('');
 
-    const {addPlant} = useContext(AuthContext)
+    const {addPlant} = useContext(PlantContext)
+
+    const addItem = () => {
+        addPlant(title, newTime)
+        navigation.navigate('Home')
+    }
 
     return (
       <View style={{...styles.container}}>
@@ -35,11 +40,11 @@ export default function NewPlant() {
                 colorPress={"#2bae6f"}
                 color='gray'
                 width={200}
-                value={timeValue}
-                onChangeText={setTimeValue}
+                value={newTime}
+                onChangeText={setNewTime}
                 rounded={false}
             />
-            <TouchableOpacity style={{height:40, width:80, backgroundColor:'gray', justifyContent:'center'}} onPress={addPlant}>
+            <TouchableOpacity style={{height:40, width:80, backgroundColor:'gray', justifyContent:'center'}} onPress={addItem}>
                 <Text style={{textAlign:'center', fontWeight:'bold', fontSize:14, color:'#fff'}}>Add Plant</Text>
             </TouchableOpacity>
         </View>

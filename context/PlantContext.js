@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+
 export const PlantContext = createContext()
 const plantImg = require('../assets/potted-plant.png')
 
@@ -10,9 +11,9 @@ let plantArray = [
 export default function PlantContextProvider ({children}) {
     const [plantList, setPlantList] = useState(plantArray)
 
-    const addPlant = (title, reminderTime, timeLeft) => {
+    const addPlant = (title, newTime) => {
         var newArray = [];
-        plantArray.push(...newArray, {id:4, img:plantImg, title: 'title', reminderTime:'reminderTime', timeLeft:'timeLeft'} )
+        plantArray.push(...newArray, {id:4, img:plantImg, title: title, reminderTime:newTime, timeLeft: newTime} )
         // plantArray.map((newArray) => { 
         //     return (
         //         {id:4, img:plantImg, title: 'title', reminderTime:'reminderTime', timeLeft:'timeLeft'}
@@ -24,7 +25,7 @@ export default function PlantContextProvider ({children}) {
     }
 
     return (
-        <PlantContext.Provider>
+        <PlantContext.Provider value={{addPlant, plantList}}>
             {children}
         </PlantContext.Provider>
     )
