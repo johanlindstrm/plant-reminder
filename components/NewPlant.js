@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
+import {AuthContext} from '../context/AuthContext'
 
 const placeholderImg = require('../assets/potted-plant.png');
 
@@ -9,9 +10,8 @@ export default function NewPlant() {
     const [title, setTitle] = useState('');
     const [timeValue, setTimeValue] = useState('');
     const [newImg, setNewImg] = useState();
-    const addPlant = () => {
-        console.log('add pressed')
-    }
+
+    const {addPlant} = useContext(AuthContext)
 
     return (
       <View style={{...styles.container}}>

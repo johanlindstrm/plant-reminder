@@ -21,7 +21,7 @@ export default function RootTabNavigator() {
       <Tab.Navigator tabBarOptions={tabBarOptionStyle}>
         <Tab.Screen name="Home" component={MainStackNavigator} />
         {/* <Tab.Screen name="Profile" component={ProfileStackNavigator}/> */}
-        <Tab.Screen name='Login' component={AuthStackNavigator} />
+        <Tab.Screen name='Profile' component={AuthStackNavigator} />
       </Tab.Navigator>
 
     );
