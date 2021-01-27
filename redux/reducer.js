@@ -28,7 +28,7 @@ const dataReducer = (state = dataState, action) => {
             let clone = JSON.parse(JSON.stringify(state.plants));
 
             //check if plant already exist
-            const index = clone.findIndex((obj) => obj.id === quote.id);
+            const index = clone.findIndex((obj) => obj.id === plant.id);
             
             //if the quote is in the array, replace the plant
             if (index !== -1) clone[index] = plant;
@@ -36,7 +36,7 @@ const dataReducer = (state = dataState, action) => {
             return {...state, plants: clone};
         }
 
-        case DELETE_QUOTE:{
+        case DELETE_PLANT:{
             let { id } = action.data;
 
             //clone the current state

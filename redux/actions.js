@@ -10,7 +10,7 @@ export const addPlants = (plants) => ({
 });
 
 // Add Plant - CREATE (C)
-export const addQuote = (plant) => ({
+export const addPlant = (plant) => ({
     type: ADD_PLANT,
     data: {plant}
 });

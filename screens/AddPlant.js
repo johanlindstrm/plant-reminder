@@ -1,17 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import NewPlant from '../components/NewPlant'
 
 export default function AddPlant() {
   return (
-      <View style={styles.container}>
-        <Text>Hello Add Plant View</Text>
-      </View>
+      <NewPlant />
   );
 }
-const styles = StyleSheet.create({
-    container: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    },
-  });

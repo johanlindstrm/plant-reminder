@@ -6,7 +6,7 @@ const Tab = createBottomTabNavigator();
 
 const tabBarOptionStyle = {
     labelStyle: {
-        fontSize:16,
+        fontSize:14,
         margin:0,
         padding:0,
     },
