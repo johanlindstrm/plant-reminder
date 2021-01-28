@@ -9,14 +9,27 @@ const placeholderImg = require('../assets/potted-plant.png');
 export default function NewPlant() {
     const navigation = useNavigation()
     const [title, setTitle] = useState('');
-    const [newTime, setNewTime] = useState('');
+    const [time, setTime] = useState('');
 
     const {addPlant} = useContext(PlantContext)
 
     const addItem = () => {
-        addPlant(title, newTime)
-        navigation.navigate('Home')
-    }
+      //Check for the Title TextInput
+      if (!title.trim()) {
+        alert('Please enter title');
+        return;
+      }
+      // if (!time.trim()) {
+      //   alert('Please enter number of days');
+      //   return;
+      // }
+      //Checked Successfully
+      //Do whatever you want
+      alert('Success');
+      addPlant(title, time)
+      navigation.navigate('Home')
+    };
+
 
     return (
       <View style={{...styles.container}}>
@@ -33,6 +46,11 @@ export default function NewPlant() {
             />
 
             <Text>Water frequency</Text>
+            {/* <TextInput placeholder='Enter Days' 
+                value={time} 
+                onChangeText={setTime}
+                style={styles.inputStyle}
+            /> */}
             <InputSpinner
                 max={30}
                 min={1}
@@ -40,8 +58,7 @@ export default function NewPlant() {
                 colorPress={"#2bae6f"}
                 color='gray'
                 width={200}
-                value={newTime}
-                onChangeText={setNewTime}
+                value={time}
                 rounded={false}
             />
             <TouchableOpacity style={{height:40, width:80, backgroundColor:'gray', justifyContent:'center'}} onPress={addItem}>
