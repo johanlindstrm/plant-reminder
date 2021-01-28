@@ -1,8 +1,8 @@
 import React from 'react';
-import NewPlant from '../components/NewPlant'
+import PlantForm from '../components/PlantForm'
 
 export default function AddPlant() {
   return (
-      <NewPlant />
+      <PlantForm />
   );
 }

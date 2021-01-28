@@ -4,7 +4,8 @@ export const PlantContext = createContext()
 const plantImg = require('../assets/potted-plant.png')
 
 let plantArray = [
-    {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'}
+    // {id:'', img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
+    // {id:'', img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
 ]
 
 
@@ -12,16 +13,18 @@ export default function PlantContextProvider ({children}) {
     const [plantList, setPlantList] = useState(plantArray)
 
     const addPlant = (title, newTime) => {
-        var newArray = [];
-        plantArray.push(...newArray, {id:4, img:plantImg, title: title, reminderTime:newTime, timeLeft: newTime} )
-        // plantArray.map((newArray) => { 
-        //     return (
-        //         {id:4, img:plantImg, title: 'title', reminderTime:'reminderTime', timeLeft:'timeLeft'}
 
-        //     )
-        // })
-        setPlantList(newArray)
-        console.log('add plant pressed',plantArray)
+    const id = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+          
+        let cloneArray = plantArray.slice()
+        cloneArray.push({id:id(), img:plantImg, title: title, reminderTime:newTime, timeLeft: newTime} )
+
+        setPlantList(cloneArray)
+        console.log('added new plant to array: ', cloneArray)
     }
 
     return (
