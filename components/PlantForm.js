@@ -34,42 +34,42 @@ export default function NewPlant() {
     return (
       <View style={{...styles.container}}>
 
-        <View style={{height:'50%' ,alignItems:'center', padding:20}}>
+          <View >
+            <Image source={placeholderImg} style={{ height: 150, width: 150, marginTop:100}} />
+          </View>
 
-            <Image source={placeholderImg} style={{ height: 100, width: 100 , marginBottom:20}} />
-            
-            <Text>Plant Title</Text>
+          <View style={{flex:1, justifyContent:'center'}}>
+            <Text style={{fontWeight:'bold', marginBottom:10}}>Plant Title</Text>
             <TextInput placeholder='Enter Title' 
-                value={title} 
-                onChangeText={setTitle}
-                style={styles.inputStyle}
+              value={title} 
+              onChangeText={setTitle}
+              style={styles.inputStyle}
             />
+          </View>
 
-            <Text>Water frequency</Text>
+          <View style={{flex:1, justifyContent:'center'}}>
+            <Text style={{fontWeight:'bold', marginBottom:10}}>Water frequency</Text>
             {/* <TextInput placeholder='Enter Days' 
-                value={time} 
-                onChangeText={setTime}
-                style={styles.inputStyle}
+                  value={time} 
+                  onChangeText={setTime}
+                  style={styles.inputStyle}
             /> */}
             <InputSpinner
-                max={30}
-                min={1}
-                step={1}
-                colorPress={"#2bae6f"}
-                color='gray'
-                width={200}
-                value={time}
-                rounded={false}
+              max={30}
+              min={1}
+              step={1}
+              colorPress={"#2bae6f"}
+              color='gray'
+              width={200}
+              value={time}
+              rounded={false}
             />
-            <TouchableOpacity style={{height:40, width:80, backgroundColor:'gray', justifyContent:'center'}} onPress={addItem}>
+          </View>
+          <View style={{flex:1.5}}>
+            <TouchableOpacity style={{height:50, width:200, backgroundColor:'gray', justifyContent:'center', borderRadius:5}} onPress={addItem}>
                 <Text style={{textAlign:'center', fontWeight:'bold', fontSize:14, color:'#fff'}}>Add Plant</Text>
             </TouchableOpacity>
-        </View>
-
-
-        <View>
-
-        </View>
+          </View>
 
       </View>
     );
