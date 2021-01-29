@@ -1,17 +1,75 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
-export default function Home() {
+
+export default function Details() {
   return (
-      <View style={styles.container}>
-        <Text>Hello Details</Text>
+    <View style={styles.container}>
+      <View>
+        <Image  />
       </View>
-  );
+    </View>
+  )
 }
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    },
-  });
+  },
+
+  itemContainer: {
+    backgroundColor: '#d3d3d3',
+    marginTop:0,
+    marginBottom:5,
+    width:'100%',
+    height:120,
+    flexDirection:'row',
+    alignItems:'center'
+
+  },
+  imgContainer: {
+    flex:0.5,
+    // backgroundColor:'orange',
+    marginLeft:20
+  },
+
+  textContainer: {
+    flex:1,
+    // backgroundColor:'red',
+    height:100,
+    paddingLeft:40,
+    marginLeft:10,
+    marginRight:10,
+    justifyContent:'center',
+
+  },
+    
+  waterBtnContainer: {
+    // backgroundColor:'orange',
+    alignItems:'flex-end',
+    marginRight:20
+
+  },
+
+  buttonText: {
+    textAlign:'center',
+    fontWeight:'bold',
+    fontSize:20,
+    color:'#fff'
+  },
+
+  waterbutton: {
+    height:40,
+    width:80,
+    backgroundColor:'#2b68ae',
+    justifyContent:'center'
+  },
+
+  title: {
+    fontSize: 15,
+    fontWeight:'bold',
+    marginBottom: 10
+  },
+
+});

@@ -7,7 +7,7 @@ import { PlantContext } from '../context/PlantContext';
 
 const renderItem = ({item}) => {
   return (
-    <ListItem item={item}/>
+    <ListItem item={item} />
   )
 }
 

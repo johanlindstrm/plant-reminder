@@ -9,7 +9,7 @@ export default function ListItem({item}) {
         <TouchableOpacity 
           style={styles.itemContainer} 
           onPress={() => {navigation.navigate('Details', {data: item})
-          console.log('navigated: ', item)
+          console.log('navigate to: ', item)
           }}>
                 
         <View style={styles.imgContainer}>

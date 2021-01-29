@@ -9,7 +9,7 @@ const placeholderImg = require('../assets/potted-plant.png');
 export default function NewPlant() {
     const navigation = useNavigation()
     const [title, setTitle] = useState('');
-    const [time, setTime] = useState('');
+    const [time, setTime] = useState();
 
     const {addPlant} = useContext(PlantContext)
 
@@ -63,6 +63,10 @@ export default function NewPlant() {
               width={200}
               value={time}
               rounded={false}
+              onChange={(time) => {
+                setTime(time)
+                console.log(time);
+              }}
             />
           </View>
           <View style={{flex:1.5}}>
