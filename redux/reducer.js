@@ -30,7 +30,7 @@ const dataReducer = (state = dataState, action) => {
             //check if plant already exist
             const index = clone.findIndex((obj) => obj.id === plant.id);
             
-            //if the quote is in the array, replace the plant
+            //if the plant is in the array, replace the plant
             if (index !== -1) clone[index] = plant;
             
             return {...state, plants: clone};
@@ -42,10 +42,10 @@ const dataReducer = (state = dataState, action) => {
             //clone the current state
             let clone = JSON.parse(JSON.stringify(state.plants));
 
-            //check if quote already exist
+            //check if plant already exist
             const index = clone.findIndex((obj) => obj.id === id);
 
-            //if the quote is in the array, remove the quote
+            //if the plant is in the array, remove the plant
             if (index !== -1) clone.splice(index, 1);
 
             return {...state, plants: clone};

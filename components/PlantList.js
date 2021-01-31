@@ -7,18 +7,13 @@ import { PlantContext } from '../context/PlantContext';
 
 const renderItem = ({item}) => {
   return (
-    <ListItem item={item} />
+    <ListItem item={item} img={item.img} title={item.title} reminderTime={item.reminderTime} timeLeft={item.timeLeft} />
   )
 }
 
 export default function List() {
   const {plantList} = useContext(PlantContext)
 
-  // const [plants, setPlants] = useState([
-  //   {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
-  //   {id:2, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
-  //   {id:3, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'},
-  // ]);
     return (
       <FlatList
       data={plantList}

@@ -1,55 +1,81 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Button} from 'react-native';
 
 
-export default function Details() {
+export default function Details({route}) {
   return (
     <View style={styles.container}>
       <View>
-        <Image  />
+
+        <View style={styles.imgContainer} >
+          <Image source={route.params.img} style={{width:200, height:200}} />
+        </View>
+
+        {/* <View style={styles.headerContainer} >
+        </View> */}
+
+        <View style={styles.textContainer}>
+          <Text style={styles.titleText} > {route.params.title} </Text>
+
+          <Text style={styles.text}> {route.params.reminderTime}</Text>
+          <Text style={styles.text}> {route.params.timeLeft}</Text>
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.waterbutton} onPress={() => {console.log('delete?')}}> 
+          <Text style={styles.buttonText} >Water?</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
 }
 const styles = StyleSheet.create({
   container: {
-    flex:1,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  itemContainer: {
-    backgroundColor: '#d3d3d3',
-    marginTop:0,
-    marginBottom:5,
-    width:'100%',
-    height:120,
-    flexDirection:'row',
-    alignItems:'center'
 
   },
+
   imgContainer: {
-    flex:0.5,
-    // backgroundColor:'orange',
-    marginLeft:20
+    flex:2,
+    justifyContent:'center',
+    // backgroundColor:'yellow',
   },
 
   textContainer: {
     flex:1,
-    // backgroundColor:'red',
-    height:100,
-    paddingLeft:40,
-    marginLeft:10,
-    marginRight:10,
     justifyContent:'center',
+    alignItems:'center',
+    // backgroundColor:'lightblue',
 
   },
-    
-  waterBtnContainer: {
-    // backgroundColor:'orange',
-    alignItems:'flex-end',
-    marginRight:20
 
+  buttonContainer: {
+    flex:2,
+    justifyContent:'center',
+    alignItems:'center',
+    // backgroundColor:'#d3d3d3',
+  },
+
+  titleText: {
+    fontSize:32,
+    fontWeight:'700',
+    marginBottom:20
+
+  },
+
+  text:{
+    fontSize:18,
+    fontWeight:'500',
+    padding:5
+  },
+
+  waterbutton: {
+    height:50,
+    width:120,
+    backgroundColor:'#2b68ae',
+    justifyContent:'center',
+    borderRadius:10,
   },
 
   buttonText: {
@@ -58,18 +84,6 @@ const styles = StyleSheet.create({
     fontSize:20,
     color:'#fff'
   },
-
-  waterbutton: {
-    height:40,
-    width:80,
-    backgroundColor:'#2b68ae',
-    justifyContent:'center'
-  },
-
-  title: {
-    fontSize: 15,
-    fontWeight:'bold',
-    marginBottom: 10
-  },
+  
 
 });

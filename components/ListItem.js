@@ -2,14 +2,15 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default function ListItem({item}) {
+export default function ListItem({item, img, title, reminderTime, timeLeft}) {
     const navigation = useNavigation()
     return (
       <View style={styles.container}>
         <TouchableOpacity 
           style={styles.itemContainer} 
-          onPress={() => {navigation.navigate('Details', {data: item})
-          console.log('navigate to: ', item)
+          activeOpacity={0.6}
+          onPress={() => {navigation.navigate('Details', {params: item, img, title, reminderTime, timeLeft})
+          console.log('navigate to: ', item, item.title, item.reminderTime)
           }}>
                 
         <View style={styles.imgContainer}>
