@@ -1,32 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
 import { auth } from "../firebase.js";
 export const AuthContext = createContext()
-// const plantImg = require('../assets/potted-plant.png')
-
-// let plantArray = [
-//     {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: 'Time left'}
-// ]
 
 export default function AuthContextProvider({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState();
     const [isLoading, setIsLoading] = useState(true)
-    // const [plantList, setPlantList] = useState(plantArray)
-
-
-
-    // const addPlant = (title, reminderTime, timeLeft) => {
-    //     var newArray = [];
-    //     plantArray.push(...newArray, {id:4, img:plantImg, title: 'title', reminderTime:'reminderTime', timeLeft:'timeLeft'} )
-    //     // plantArray.map((newArray) => { 
-    //     //     return (
-    //     //         {id:4, img:plantImg, title: 'title', reminderTime:'reminderTime', timeLeft:'timeLeft'}
-
-    //     //     )
-    //     // })
-    //     setPlantList(newArray)
-    //     console.log('add plant pressed',plantArray)
-    // }
 
     useEffect(()=> {
             const unsubscribe = auth.onAuthStateChanged((user) => {

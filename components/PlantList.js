@@ -7,7 +7,7 @@ import { PlantContext } from '../context/PlantContext';
 
 const renderItem = ({item}) => {
   return (
-    <ListItem item={item} img={item.img} title={item.title} reminderTime={item.reminderTime} timeLeft={item.timeLeft} />
+    <ListItem item={item} img={item.img} title={item.title} reminderTime={item.reminderTime} timeLeft={item.timeLeft} id={item.id} />
   )
 }
 

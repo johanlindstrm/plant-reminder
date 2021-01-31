@@ -1,9 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, {useContext} from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {PlantContext} from '../context/PlantContext'
 
-export default function ListItem({item, img, title, reminderTime, timeLeft}) {
+export default function ListItem({item, img, title, reminderTime, timeLeft, id}) {
     const navigation = useNavigation()
+    const {deletePlant} = useContext(PlantContext)
+
     return (
       <View style={styles.container}>
         <TouchableOpacity 
@@ -24,7 +27,7 @@ export default function ListItem({item, img, title, reminderTime, timeLeft}) {
         </View>
                 
         <View style={styles.waterBtnContainer}>
-          <TouchableOpacity style={styles.waterbutton} > 
+          <TouchableOpacity style={styles.waterbutton} onPress={() => {deletePlant(id)}} > 
             <Text style={styles.buttonText}>Water</Text>
           </TouchableOpacity>
         </View>
