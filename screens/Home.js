@@ -12,7 +12,7 @@ export default function Home() {
       <View style={{height:'100%'}}>
         <PlantList/>
         <AddItemButton />
-        {/* <Button title='press' onPress={() => console.log(getData())}/> */}
+        <Button title='press' onPress={() => console.log(getData())}/>
 
       </View>
   );

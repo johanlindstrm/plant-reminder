@@ -15,8 +15,6 @@ export default function PlantContextProvider ({children}) {
 
   const addPlant = async (title, time) => {
 
-
-
     const id = () => {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
@@ -24,13 +22,15 @@ export default function PlantContextProvider ({children}) {
     } 
       let cloneArray = plantArray.slice()
       cloneArray.push({id:id(), img:plantImg, title: title, reminderTime:`Water every ${time} days`, timeLeft: `${time} Days Left` } )
+      
       try {
         const jsonValue = JSON.stringify(cloneArray)
         await AsyncStorage.setItem('@storage_key', jsonValue)
         console.log('**STORED DATA**',jsonValue)
       } catch (error) {
-        // console.log('Error storing data: ', error);
+        console.log('Error storing data: ', error);
       }
+      
       setPlantList(cloneArray)
       console.log('added new plant to array: ', cloneArray)
   }
@@ -40,13 +40,10 @@ export default function PlantContextProvider ({children}) {
     setPlantList(filteredData)
   }
 
-
-
-
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('@storage_key')
-      console.log('retrieved data: ',jsonValue)
+      console.log('*DATA*: ',jsonValue)
       return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch(error) {
       console.log('error retreving data: ', error)
