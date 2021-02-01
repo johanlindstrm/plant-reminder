@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { Button, FlatList, StyleSheet } from 'react-native';
 import ListItem from './ListItem'
 import { PlantContext } from '../context/PlantContext';
 
@@ -12,7 +12,7 @@ const renderItem = ({item}) => {
 }
 
 export default function List() {
-  const {plantList} = useContext(PlantContext)
+  const {plantList, getData} = useContext(PlantContext)
 
     return (
       <FlatList

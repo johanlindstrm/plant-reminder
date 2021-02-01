@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, {useState, useContext} from 'react';
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, Alert } from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import { PlantContext } from '../context/PlantContext';
 
@@ -11,21 +11,21 @@ export default function NewPlant() {
     const [title, setTitle] = useState('');
     const [time, setTime] = useState();
 
-    const {addPlant} = useContext(PlantContext)
+    const {addPlant, getData} = useContext(PlantContext)
 
     const addItem = () => {
       //Check for the Title TextInput
       if (!title.trim()) {
-        alert('Please enter title');
+        Alert.alert('Error','Please enter title');
         return;
       }
-      // if (!time.trim()) {
-      //   alert('Please enter number of days');
-      //   return;
-      // }
-      //Checked Successfully
-      //Do whatever you want
-      alert('Success');
+      if (time == undefined) {
+        Alert.alert('Error','Please enter number of days');
+        return;
+      }
+      // Checked Successfully
+      // Do whatever you want
+      Alert.alert('Success');
       addPlant(title, time)
       navigation.navigate('Home')
     };
@@ -56,7 +56,7 @@ export default function NewPlant() {
             /> */}
             <InputSpinner
               max={30}
-              min={1}
+              min={0}
               step={1}
               colorPress={"#2bae6f"}
               color='gray'
@@ -74,6 +74,12 @@ export default function NewPlant() {
                 <Text style={{textAlign:'center', fontWeight:'bold', fontSize:14, color:'#fff'}}>Add Plant</Text>
             </TouchableOpacity>
           </View>
+          <View style={{flex:1.5}}>
+            <TouchableOpacity style={{height:50, width:200, backgroundColor:'gray', justifyContent:'center', borderRadius:5}} onPress={()=>{addItem ;getData()}}>
+                <Text style={{textAlign:'center', fontWeight:'bold', fontSize:14, color:'#fff'}}>Add Plant</Text>
+            </TouchableOpacity>
+          </View>
+
 
       </View>
     );
