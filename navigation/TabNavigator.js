@@ -18,7 +18,7 @@ const tabBarOptionStyle = {
 export default function RootTabNavigator() {
     return (
     
-      <Tab.Navigator tabBarOptions={tabBarOptionStyle}>
+      <Tab.Navigator tabBarOptions={{...tabBarOptionStyle}} >
         <Tab.Screen name="Home" component={MainStackNavigator} />
         {/* <Tab.Screen name="Profile" component={ProfileStackNavigator}/> */}
         <Tab.Screen name='Profile' component={AuthStackNavigator} />

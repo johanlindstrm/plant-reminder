@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
 
 export default function Profile() {
@@ -30,9 +30,15 @@ export default function Profile() {
           </View>
         </View>
 
-        <View style={{flex:1, justifyContent:'flex-end'}}>
+        {/* <View style={{flex:1, justifyContent:'flex-end'}}>
           <Button title='Sign Out' onPress={logOut} />
-        </View>
+        </View> */}
+        <TouchableOpacity style={{ width:300, height:45, backgroundColor: '#996633', justifyContent:'center', borderRadius:5, marginBottom:20}}
+                 onPress={logOut}
+                 activeOpacity={0.7}
+            >
+                <Text style={{color:'white', textAlign:'center', fontWeight:'bold', fontSize:16}}> SIGN OUT </Text>
+            </TouchableOpacity>
       </View>
   );
 }

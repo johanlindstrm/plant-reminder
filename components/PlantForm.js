@@ -74,12 +74,6 @@ export default function NewPlant() {
                 <Text style={{textAlign:'center', fontWeight:'bold', fontSize:14, color:'#fff'}}>Add Plant</Text>
             </TouchableOpacity>
           </View>
-          <View style={{flex:1.5}}>
-            <TouchableOpacity style={{height:50, width:200, backgroundColor:'gray', justifyContent:'center', borderRadius:5}} onPress={()=>{addItem ;getData()}}>
-                <Text style={{textAlign:'center', fontWeight:'bold', fontSize:14, color:'#fff'}}>Add Plant</Text>
-            </TouchableOpacity>
-          </View>
-
 
       </View>
     );
