@@ -1,62 +1,95 @@
 import React, { createContext, useState } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
 
-export const PlantContext = createContext()
-const plantImg = require('../assets/potted-plant.png')
+export const PlantContext = createContext();
+const plantImg = require("../assets/potted-plant.png");
 
-let plantArray = [
-    {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: '5 Days left'},
-    {id:2, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: '2 Days left'},
-]
+// let plantArray = [
+//   // {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: '5 Days left'},
+//   // {id:2, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: '2 Days left'},
+// ];
 
-
-export default function PlantContextProvider ({children}) {
-  const [plantList, setPlantList] = useState(plantArray)
+export default function PlantContextProvider({ children }) {
+  const [plantList, setPlantList] = useState([]);
 
   const addPlant = async (title, time) => {
-
     const id = () => {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
         .substring(1);
-    } 
-      let cloneArray = plantArray.slice()
-      cloneArray.push({id:id(), img:plantImg, title: title, reminderTime:`Water every ${time} days`, timeLeft: `${time} Days Left` } )
-      
-      try {
-        const jsonValue = JSON.stringify(cloneArray)
-        await AsyncStorage.setItem('@storage_key', jsonValue)
-        console.log('**STORED DATA**',jsonValue)
-      } catch (error) {
-        console.log('Error storing data: ', error);
-      }
-      
-      setPlantList(cloneArray)
-      console.log('added new plant to array: ', cloneArray)
-  }
+    };
+    let randomID = id();
+
+    let plantArray = [];
+
+    plantArray.push({
+      id: randomID,
+      img: plantImg,
+      title: title,
+      reminderTime: `Water every ${time} days`,
+      timeLeft: `${time} Days Left`,
+    });
+
+    AsyncStorage.setItem("PLANT_DATA", JSON.stringify(plantArray), () => {
+      AsyncStorage.getItem("PLANT_DATA", (err, result) => {
+        console.log("RESULTS: ", result);
+        const parsedResult = JSON.parse(result);
+        setPlantList(parsedResult);
+        console.log("ERR: ", err);
+      });
+    });
+
+    // setPlantList(plantArray);
+
+    console.log("NEW PLANT ADDED: ", plantArray);
+  };
+
+  const clearData = async () => {
+    AsyncStorage.clear();
+  };
+
+  // const storeData = async () => {
+  //   try {
+  //     const stringifyPlant = JSON.stringify(plantList);
+  //     await AsyncStorage.setItem("@store:plants", stringifyPlant);
+  //     console.log(stringifyPlant);
+  //   } catch (error) {
+  //     // Error saving data
+  //     console.log(error);
+  //   }
+  // };
+
+  // const retrieveData = async () => {
+  //   try {
+  //     const value = await AsyncStorage.getItem("@store:plants");
+  //     if (value !== null) {
+  //       // We have data!!
+  //       newPlant = JSON.parse(value);
+  //       setPlantList(newPlant);
+  //       console.log(value);
+  //     }
+  //   } catch (error) {
+  //     // Error retrieving data
+  //   }
+  // };
 
   const deletePlant = (id) => {
-    const filteredData = plantArray.filter(item => item.id !== id);
-    setPlantList(filteredData)
-  }
+    const filteredData = plantList.filter((item) => item.id !== id);
+    setPlantList(filteredData);
+  };
 
-  const getData = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('@storage_key')
-      console.log('*DATA*: ',jsonValue)
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch(error) {
-      console.log('error retreving data: ', error)
-    }
-  }
-  
-
-
-    return (
-        <PlantContext.Provider value={{ addPlant, deletePlant, plantList, getData }}>
-            {children}
-        </PlantContext.Provider>
-    )
-
-
+  return (
+    <PlantContext.Provider
+      value={{
+        addPlant,
+        deletePlant,
+        plantList,
+        clearData,
+        setPlantList,
+      }}
+    >
+      {children}
+    </PlantContext.Provider>
+  );
 }

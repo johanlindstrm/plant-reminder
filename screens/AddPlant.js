@@ -1,8 +1,6 @@
-import React from 'react';
-import PlantForm from '../components/PlantForm'
+import React from "react";
+import PlantForm from "../components/PlantForm";
 
 export default function AddPlant() {
-  return (
-      <PlantForm />
-  );
+  return <PlantForm />;
 }
