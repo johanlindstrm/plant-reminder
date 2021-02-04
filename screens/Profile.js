@@ -17,77 +17,27 @@ export default function Profile() {
   return (
     <View style={styles.container}>
       <View style={styles.StatsContainer}>
-        <View
-          style={{
-            backgroundColor: "#2bae6f",
-            width: 200,
-            height: 200,
-            justifyContent: "center",
-            margin: 20,
-            borderRadius: 100,
-          }}
-        >
-          <Text
-            style={{ textAlign: "center", fontWeight: "500", fontSize: 22 }}
-          >
+        <View style={{ ...styles.circleContainer, backgroundColor: "#2bae6f" }}>
+          <Text style={styles.statText}>
             Plants Alive: {"\n"}
-            <Text
-              style={{ textAlign: "center", fontWeight: "300", fontSize: 22 }}
-            >
-              {numPlants}
-            </Text>
+            <Text style={styles.statNumber}>{numPlants}</Text>
           </Text>
         </View>
 
-        <View
-          style={{
-            backgroundColor: "#2b68ae",
-            width: 200,
-            height: 200,
-            justifyContent: "center",
-            margin: 20,
-            borderRadius: 100,
-          }}
-        >
-          <Text
-            style={{ textAlign: "center", fontWeight: "500", fontSize: 22 }}
-          >
+        <View style={{ ...styles.circleContainer, backgroundColor: "#2b68ae" }}>
+          <Text style={styles.statText}>
             Times Watered: {"\n"}
-            <Text
-              style={{ textAlign: "center", fontWeight: "300", fontSize: 22 }}
-            >
-              {numWatered}
-            </Text>
+            <Text style={styles.statNumber}>{numWatered}</Text>
           </Text>
         </View>
       </View>
 
-      {/* <View style={{flex:1, justifyContent:'flex-end'}}>
-          <Button title='Sign Out' onPress={logOut} />
-        </View> */}
       <TouchableOpacity
-        style={{
-          width: 300,
-          height: 45,
-          backgroundColor: "#996633",
-          justifyContent: "center",
-          borderRadius: 5,
-          marginBottom: 20,
-        }}
+        style={styles.customButton}
         onPress={logOut}
         activeOpacity={0.7}
       >
-        <Text
-          style={{
-            color: "white",
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: 16,
-          }}
-        >
-          {" "}
-          SIGN OUT{" "}
-        </Text>
+        <Text style={styles.buttonText}> SIGN OUT </Text>
       </TouchableOpacity>
     </View>
   );
@@ -107,5 +57,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     // flexDirection:'row'
+  },
+
+  buttonText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+
+  customButton: {
+    width: 300,
+    height: 45,
+    backgroundColor: "#996633",
+    justifyContent: "center",
+    borderRadius: 5,
+    marginBottom: 20,
+  },
+
+  statText: {
+    textAlign: "center",
+    fontWeight: "500",
+    fontSize: 22,
+  },
+
+  statNumber: {
+    textAlign: "center",
+    fontWeight: "300",
+    fontSize: 22,
+  },
+
+  circleContainer: {
+    width: 200,
+    height: 200,
+    justifyContent: "center",
+    margin: 20,
+    borderRadius: 100,
   },
 });

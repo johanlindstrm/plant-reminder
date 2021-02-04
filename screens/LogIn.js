@@ -15,24 +15,16 @@ export default function LogIn() {
     console.log("submitted log in");
     logIn(email, password);
   };
+
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 1.2,
-          width: "70%",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          flexDirection: "row",
-        }}
-      >
-        <Text style={styles.testHeader}>Plant App</Text>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>Plant App</Text>
         <Image
           source={plantIcon}
           style={{ width: 70, height: 70, marginTop: 205 }}
         />
       </View>
-
       <View style={{ flex: 1.5, width: "100%", alignItems: "center" }}>
         <TextInput
           placeholder='name@email.com'
@@ -55,27 +47,11 @@ export default function LogIn() {
           keyboardAppearance={"dark"}
         />
         <TouchableOpacity
-          style={{
-            width: 300,
-            height: 45,
-            backgroundColor: "#996633",
-            justifyContent: "center",
-            borderRadius: 5,
-            marginTop: 10,
-          }}
+          style={styles.customButton}
           onPress={submit}
           activeOpacity={0.7}
         >
-          <Text
-            style={{
-              color: "white",
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: 16,
-            }}
-          >
-            LOGIN
-          </Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -96,11 +72,34 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 
-  testHeader: {
+  header: {
     color: "#2bae6f",
     fontSize: 42,
     fontWeight: "700",
     paddingTop: 230,
-    // fontFamily:''
+  },
+
+  headerContainer: {
+    flex: 1.2,
+    width: "70%",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    flexDirection: "row",
+  },
+
+  customButton: {
+    width: 300,
+    height: 45,
+    backgroundColor: "#996633",
+    justifyContent: "center",
+    borderRadius: 5,
+    marginTop: 10,
+  },
+
+  buttonText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 });

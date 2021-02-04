@@ -4,13 +4,33 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export const PlantContext = createContext();
 const plantImg = require("../assets/potted-plant.png");
 
-// let plantArray = [
-//   // {id:1, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: '5 Days left'},
-//   // {id:2, img: plantImg, title: 'Plant Title', reminderTime: 'Water every * days', timeLeft: '2 Days left'},
+// const itemList = [
+// {
+//   id: 1,
+//   img: plantImg,
+//   title: "Plant Title",
+//   reminderTime: "Water every * days",
+//   timeLeft: "5 Days left",
+// },
+// {
+//   id: 2,
+//   img: plantImg,
+//   title: "Plant Title",
+//   reminderTime: "Water every * days",
+//   timeLeft: "2 Days left",
+// },
 // ];
 
 export default function PlantContextProvider({ children }) {
-  const [plantList, setPlantList] = useState([]);
+  const [plantList, setPlantList] = useState([
+    {
+      id: 2,
+      img: plantImg,
+      title: "Plant Title",
+      reminderTime: "Water every * days",
+      timeLeft: "2 Days left",
+    },
+  ]);
 
   const addPlant = async (title, time) => {
     const id = () => {
@@ -20,7 +40,9 @@ export default function PlantContextProvider({ children }) {
     };
     let randomID = id();
 
-    let plantArray = [];
+    let plantArray = plantList.slice();
+
+    // plantArray = itemList.slice();
 
     plantArray.push({
       id: randomID,
@@ -79,6 +101,7 @@ export default function PlantContextProvider({ children }) {
 
   const deletePlant = (id) => {
     const filteredData = plantList.filter((item) => item.id !== id);
+    console.log("Deleted item with id: ", id);
     setPlantList(filteredData);
   };
 

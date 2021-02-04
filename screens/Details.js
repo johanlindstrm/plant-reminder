@@ -50,29 +50,28 @@ const styles = StyleSheet.create({
   },
 
   imgContainer: {
-    flex: 2,
-    justifyContent: "center",
-    // backgroundColor:'yellow',
+    flex: 1.2,
+    justifyContent: "flex-end",
+    // backgroundColor: "yellow",
   },
 
   textContainer: {
-    flex: 0.2,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor:'lightblue',
+    // backgroundColor: "lightblue",
   },
 
   buttonContainer: {
-    flex: 1.5,
-    justifyContent: "center",
+    flex: 1,
+    justifyContent: "flex-start",
     alignItems: "center",
-    // backgroundColor:'#d3d3d3',
+    // backgroundColor: "#d3d3d3",
   },
 
   titleText: {
     fontSize: 32,
     fontWeight: "700",
-    marginBottom: 10,
   },
 
   text: {
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
 
   waterbutton: {
     height: 50,
-    width: 120,
+    width: 180,
     backgroundColor: "#2b68ae",
     justifyContent: "center",
     borderRadius: 10,
