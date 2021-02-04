@@ -32,11 +32,15 @@ export default function PlantContextProvider({ children }) {
     });
 
     AsyncStorage.setItem("PLANT_DATA", JSON.stringify(plantArray), () => {
-      AsyncStorage.getItem("PLANT_DATA", (err, result) => {
-        console.log("RESULTS: ", result);
-        const parsedResult = JSON.parse(result);
-        setPlantList(parsedResult);
-        console.log("ERR: ", err);
+      AsyncStorage.getItem("PLANT_DATA", (_err, result) => {
+        // console.log("RESULTS: ", result);
+        try {
+          const parsedResult = JSON.parse(result);
+          console.log("PARSED RESULTS: ", parsedResult);
+          setPlantList(parsedResult);
+        } catch (_err) {
+          console.log("ERR: ", _err);
+        }
       });
     });
 
