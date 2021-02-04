@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
-import { View, Button } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import PlantList from "../components/PlantList.js";
 import { AddItemButton } from "../components/AddItemButton.js";
-import { PlantContext } from "../context/PlantContext";
+// import { PlantContext } from "../context/PlantContext";
 
 export default function Home() {
-  const { clearData } = useContext(PlantContext);
+  // const { clearData } = useContext(PlantContext);
 
   return (
     <View style={{ height: "100%" }}>
       <PlantList />
       <AddItemButton />
-      <Button
+      {/* <Button
         title='CLEAR DATA BUTTON'
         onPress={() => console.log(clearData())}
-      />
+      /> */}
     </View>
   );
 }

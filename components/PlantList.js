@@ -1,9 +1,7 @@
-import React, { useContext, useState } from "react";
-import { Button, FlatList, StyleSheet, Text } from "react-native";
+import React, { useContext } from "react";
+import { FlatList } from "react-native";
 import ListItem from "./ListItem";
 import { PlantContext } from "../context/PlantContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useEffect } from "react";
 
 const renderItem = ({ item }) => {
   return (
@@ -31,11 +29,3 @@ export default function List() {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { Button, StyleSheet, Text, TextInput, View, Image } from "react-native";
+import { StyleSheet, Text, TextInput, View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AuthContext } from "../context/AuthContext";
 
@@ -9,7 +9,7 @@ const plantIcon = require("../assets/potted-plant.png");
 export default function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setIsLoggedIn, logIn } = useContext(AuthContext);
+  const { logIn } = useContext(AuthContext);
 
   const submit = () => {
     console.log("submitted log in");

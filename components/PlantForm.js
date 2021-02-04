@@ -19,7 +19,7 @@ export default function NewPlant() {
   const [title, setTitle] = useState("");
   const [time, setTime] = useState();
 
-  const { addPlant, getData } = useContext(PlantContext);
+  const { addPlant } = useContext(PlantContext);
 
   const addItem = () => {
     //Check for the Title TextInput

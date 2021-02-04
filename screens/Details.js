@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useContext } from "react";
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -8,7 +8,6 @@ import {
   Image,
   Alert,
 } from "react-native";
-import { PlantContext } from "../context/PlantContext";
 
 export default function Details({ route }) {
   const navigation = useNavigation();

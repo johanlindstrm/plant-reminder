@@ -27,7 +27,7 @@ export default function ListItem({
             reminderTime,
             timeLeft,
           });
-          console.log("navigate to: ", item, item.title, item.reminderTime);
+          console.log("navigate to: ", item);
         }}
       >
         <View style={styles.imgContainer}>

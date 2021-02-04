@@ -9,6 +9,7 @@ import Details from "../screens/Details";
 import AddPlant from "../screens/AddPlant";
 import Profile from "../screens/Profile";
 import LogIn from "../screens/LogIn";
+import Splash from "../screens/Splash";
 
 const Stack = createStackNavigator();
 

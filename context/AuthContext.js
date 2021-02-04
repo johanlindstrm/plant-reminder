@@ -1,9 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
+import { Alert } from "react-native";
 import { auth } from "../firebase.js";
 export const AuthContext = createContext();
 
 export default function AuthContextProvider({ children }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,15 +22,15 @@ export default function AuthContextProvider({ children }) {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       console.log("* Firebase Log In *");
-      setIsLoggedIn(true);
+      // setIsLoggedIn(true);
     } catch (error) {
       console.log("error: ", error);
       let errorCode = error.code;
       let errorMessage = error.message;
       if (errorCode === "auth/wrong-password") {
-        alert("wrong password.");
+        Alert.alert("Error", "wrong password.");
       } else {
-        alert(errorMessage);
+        Alert.alert("Error", errorMessage);
       }
     }
   };
@@ -37,7 +38,7 @@ export default function AuthContextProvider({ children }) {
   const signOut = () => {
     try {
       auth.signOut();
-      setIsLoggedIn(false);
+      // setIsLoggedIn(false);
     } catch (error) {
       console.log("error: ", error);
     }

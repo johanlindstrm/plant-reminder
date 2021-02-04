@@ -1,12 +1,13 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Profile() {
-  const [numPlants, setNumPlants] = useState(5);
-  const [numWatered, setNumWatered] = useState(22);
-
+  // const [numPlants, setNumPlants] = useState(5);
+  // const [numWatered, setNumWatered] = useState(22);
+  const numPlants = 5;
+  const numWatered = 11;
   const { signOut } = useContext(AuthContext);
 
   const logOut = () => {
@@ -34,7 +35,7 @@ export default function Profile() {
               style={{ textAlign: "center", fontWeight: "300", fontSize: 22 }}
             >
               {numPlants}
-            </Text>{" "}
+            </Text>
           </Text>
         </View>
 
@@ -56,7 +57,7 @@ export default function Profile() {
               style={{ textAlign: "center", fontWeight: "300", fontSize: 22 }}
             >
               {numWatered}
-            </Text>{" "}
+            </Text>
           </Text>
         </View>
       </View>

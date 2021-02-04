@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useEffect } from "react";
 
 export const PlantContext = createContext();
 const plantImg = require("../assets/potted-plant.png");
