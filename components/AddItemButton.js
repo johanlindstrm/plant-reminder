@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 
 export const AddItemButton = () => {
   const navigation = useNavigation();
+  // Classic Floating Action Button
+  // Using it as a display option for navigation to Add Plant Screen
   return (
     <FAB
       style={styles.fab}

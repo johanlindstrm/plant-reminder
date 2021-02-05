@@ -50,13 +50,14 @@ const styles = StyleSheet.create({
   },
 
   imgContainer: {
-    flex: 1.2,
+    flex: 1.4,
     justifyContent: "flex-end",
+    alignItems: "center",
     // backgroundColor: "yellow",
   },
 
   textContainer: {
-    flex: 1,
+    flex: 0.8,
     justifyContent: "center",
     alignItems: "center",
     // backgroundColor: "lightblue",

@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
   StatsContainer: {
     width: "100%",
-    flex: 8,
+    flex: 1,
     // backgroundColor:'green',
     alignItems: "center",
     justifyContent: "center",

@@ -12,7 +12,8 @@ export default function ListItem({
   id,
 }) {
   const navigation = useNavigation();
-  const { deletePlant } = useContext(PlantContext);
+  // useContext to get the PlantContext with the deletePlant method
+  const { deleteAlert } = useContext(PlantContext);
 
   return (
     <View style={styles.container}>
@@ -44,7 +45,7 @@ export default function ListItem({
           <TouchableOpacity
             style={styles.waterbutton}
             onPress={() => {
-              deletePlant(id);
+              deleteAlert(id);
             }}
           >
             <Text style={styles.buttonText}>Delete</Text>

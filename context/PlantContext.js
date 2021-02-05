@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Alert } from "react-native";
 
 export const PlantContext = createContext();
 const plantImg = require("../assets/potted-plant.png");
@@ -22,15 +23,7 @@ const plantImg = require("../assets/potted-plant.png");
 // ];
 
 export default function PlantContextProvider({ children }) {
-  const [plantList, setPlantList] = useState([
-    {
-      id: 2,
-      img: plantImg,
-      title: "Plant Title",
-      reminderTime: "Water every * days",
-      timeLeft: "2 Days left",
-    },
-  ]);
+  const [plantList, setPlantList] = useState([]);
 
   const addPlant = async (title, time) => {
     const id = () => {
@@ -38,13 +31,11 @@ export default function PlantContextProvider({ children }) {
         .toString(16)
         .substring(1);
     };
+
     let randomID = id();
 
     let plantArray = plantList.slice();
-
-    // plantArray = itemList.slice();
-
-    plantArray.push({
+    plantArray.plantArray.unshift({
       id: randomID,
       img: plantImg,
       title: title,
@@ -54,7 +45,6 @@ export default function PlantContextProvider({ children }) {
 
     AsyncStorage.setItem("PLANT_DATA", JSON.stringify(plantArray), () => {
       AsyncStorage.getItem("PLANT_DATA", (_err, result) => {
-        // console.log("RESULTS: ", result);
         try {
           const parsedResult = JSON.parse(result);
           console.log("PARSED RESULTS: ", parsedResult);
@@ -65,54 +55,49 @@ export default function PlantContextProvider({ children }) {
       });
     });
 
-    // setPlantList(plantArray);
-
     console.log("NEW PLANT ADDED: ", plantArray);
   };
 
+  // Clears the entire AsyncStorage, only used in testing
   const clearData = async () => {
     AsyncStorage.clear();
   };
+  // Delete plant based on its id
+  const deleteAlert = (id) => {
+    const deletePlant = () => {
+      const filteredData = plantList.filter((item) => item.id !== id);
+      console.log("Deleted item with id: ", id);
+      // Sets the state to be the one with the filtered data
+      setPlantList(filteredData);
+    };
 
-  // const storeData = async () => {
-  //   try {
-  //     const stringifyPlant = JSON.stringify(plantList);
-  //     await AsyncStorage.setItem("@store:plants", stringifyPlant);
-  //     console.log(stringifyPlant);
-  //   } catch (error) {
-  //     // Error saving data
-  //     console.log(error);
-  //   }
-  // };
-
-  // const retrieveData = async () => {
-  //   try {
-  //     const value = await AsyncStorage.getItem("@store:plants");
-  //     if (value !== null) {
-  //       // We have data!!
-  //       newPlant = JSON.parse(value);
-  //       setPlantList(newPlant);
-  //       console.log(value);
-  //     }
-  //   } catch (error) {
-  //     // Error retrieving data
-  //   }
-  // };
-
-  const deletePlant = (id) => {
-    const filteredData = plantList.filter((item) => item.id !== id);
-    console.log("Deleted item with id: ", id);
-    setPlantList(filteredData);
+    Alert.alert(
+      "Delete?",
+      `Do you want to delete item id: ${id} ?`,
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("canceled was pressed"),
+          style: "cancel",
+        },
+        {
+          text: "Ok",
+          onPress: () => deletePlant(),
+        },
+      ],
+      {
+        cancelable: false,
+      }
+    );
   };
 
   return (
     <PlantContext.Provider
       value={{
         addPlant,
-        deletePlant,
+        deleteAlert,
         plantList,
         clearData,
-        setPlantList,
       }}
     >
       {children}

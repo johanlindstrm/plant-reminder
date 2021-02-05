@@ -24,8 +24,6 @@ export default function List() {
       data={plantList}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
-      // keyExtractor={(item) => item.toString()}
-      // keyExtractor={(index) => index.toString()}
     />
   );
 }
