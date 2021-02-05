@@ -35,7 +35,7 @@ export default function PlantContextProvider({ children }) {
     let randomID = id();
 
     let plantArray = plantList.slice();
-    plantArray.plantArray.unshift({
+    plantArray.unshift({
       id: randomID,
       img: plantImg,
       title: title,
