@@ -17,19 +17,19 @@
 * Helpful UX & Suitable UI
 
 ### Screenshots
-##### Home Screen
-<img src="https://user-images.githubusercontent.com/54855346/107077333-f973f100-67ec-11eb-98d8-7a5dca407929.png" width="30%"/>
 
-##### Add Plant Screen
-<img src="https://user-images.githubusercontent.com/54855346/107104095-8b492180-6820-11eb-8285-cc1fbe6dc931.png" width="30%"/>
    
-##### Plant Detail Screen
-<img src="https://user-images.githubusercontent.com/54855346/107104141-a74cc300-6820-11eb-99f9-18b8a4bf8de9.png" width="30%"/>
 
-##### Plant Login Screen                                                                                                                                
-<img src="https://user-images.githubusercontent.com/54855346/107104149-af0c6780-6820-11eb-87a7-1137966fa1f1.png" width="30%"/>
+<div align="center">
+   
+<img align="left" src="https://user-images.githubusercontent.com/54855346/107077333-f973f100-67ec-11eb-98d8-7a5dca407929.png" width="30%"/> <img align="center" src="https://user-images.githubusercontent.com/54855346/107104095-8b492180-6820-11eb-8285-cc1fbe6dc931.png" width="30%"/> <img align="right" src="https://user-images.githubusercontent.com/54855346/107104141-a74cc300-6820-11eb-99f9-18b8a4bf8de9.png" width="30%"/>
 
-##### Plant Profile Screen                                                                                                                                
-<img src="https://user-images.githubusercontent.com/54855346/107104156-b0d62b00-6820-11eb-9589-25a27f819185.png" width="30%"/>
+</div>
 
-----
+
+   
+<img align="center" src="https://user-images.githubusercontent.com/54855346/107104149-af0c6780-6820-11eb-87a7-1137966fa1f1.png" width="30%"/> <img align="right" src="https://user-images.githubusercontent.com/54855346/107104156-b0d62b00-6820-11eb-9589-25a27f819185.png" width="30%"/>
+
+
+
+
