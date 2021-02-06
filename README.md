@@ -1,7 +1,7 @@
 # Plant Reminder App
 ----
 ### Course
-<p> Course goal is that the student creates a hybrid mobile app for both iOS and Android using HTML, CSS and JavaScript. Students will be using React Native as the framework, with the a mind set to have the app published </p>
+<p> Course goal is that the student creates a hybrid mobile app for both iOS and Android using HTML, CSS and JavaScript. Students will be using React Native as the framework, with the a mindset to have the app published </p>
 
 ---
 ### Description
